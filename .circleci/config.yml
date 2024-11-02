@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install nholuongut_bot
+          command: gem install nholuongut_bot
+
+      - run:
+          name: Check README.md
+          command: nholuongut_bot README.md --allow-dupe --allow-redirect --white-list https://ipfs.io,slideshare,https://img.shields.io,https://codeclimate.com/github/nholuongut/zsh-plugins,www-s.acm.illinois.edu,https://mgdm.net,https://www.concourse.ci,https://grml.org/zsh/zsh-lovers.html,https://geeknote.me,https://en.ipip.net,https://docs.virtuozzo.com,kubernetes.io
